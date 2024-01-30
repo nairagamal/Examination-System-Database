@@ -1,0 +1,30 @@
+Courses (CourseID PK, CourseName, Descript, MaxDegree, MinDegree)
+
+Students --> (StudentID PK,StudentName,StudentEmail,StudentPhone,Intake FK,Branch FK,Track FK)
+
+Instructors --> (InstructorID PK,InstructorName ,InstructorEmail ,InstructorPhone ,CourseID FK)
+
+StudentEnrollment --> (EnrollmentID PK, StudentID FK, CourseID FK)
+
+InstructorCourses --> (InstructorID [FK] PK,CourseID [FK] PK)
+
+TrainingManager --> (TrainingManagerID PK,TrainingManagerName)
+
+Departments --> (DepartmentID PK,DepartmentName);
+
+Branches --> (BranchID PK,BranchName , DepartmentID FK)
+
+Tracks --> (TrackID PK, TrackName, DepartmentID FK)
+
+Intakes --> (IntakeID PK,IntakeName)
+
+Exams -->(ExamID PK,ExamType,IntakeID FK,BranchID FK,TrackID FK,CourseID FK,InstructorID FK ,StartTime ,EndTime ,TotalTime,MaxDegree)
+
+Questions --> (QuestionID PK,QuestionText ,QuestionType ,CorrectAnswer,BestAcceptedAnswer,CourseID FK,InstructorID FK)
+
+ExamQuestions --> (QuestionID [FK] PK ,ExamID [FK] PK, QuestionDegree)
+
+StudentAnswers -->(AnswerID PK, StudentExamID FK, QuestionID FK, StudentAnswer, IsCorrect )
+    
+Results -->(ResultID PK, StudentID FK, ExamID FK, TotalScore , Grade VARCHAR)
+
